@@ -1,7 +1,10 @@
 import express from 'express';
-import calculadora from './calculadora'
+import calculadora from './calculadora';
+import cors from 'cors';
 
 const app = express();
+
+app.use(cors());
 
 app.use(express.json())
 app.use('/calculadora',calculadora);
