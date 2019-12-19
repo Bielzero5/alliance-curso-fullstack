@@ -15,7 +15,8 @@
     "@babel/plugin-proposal-class-properties": "^7.7.4",
     "@babel/preset-env": "^7.7.6",
     "cors": "^2.8.5",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "pg": "^7.15.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.2"
