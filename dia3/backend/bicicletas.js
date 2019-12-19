@@ -18,7 +18,7 @@ router.get('/', async (req,res) => {
     };
     await client.end();
 
-    res.send(JSON.stringify({ resultado }));
+    res.send(JSON.stringify( resultado ));
 });
 
 router.post('/', async (req,res) => {

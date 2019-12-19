@@ -11,11 +11,11 @@ router.get('/', async (req,res) => {
     let query = await client.query("select CODIGO, NOME, TELEFONE, EMAIL, SALDO_CREDITOS from USUARIOS")
     for (let row of query.rows) {
         resultado.push({
-            codigo: row.codigo,
-            nome: row.nome,
-            telefone: row.telefone,
-            email: row.email,
-            saldoCredito: row.saldo_creditos
+            codigo: row.codigo.trim(),
+            nome: row.nome.trim(),
+            telefone: row.telefone.trim(),
+            email: row.email.trim(),
+            saldoCredito: row.saldo_creditos.trim()
         });
 
     };
