@@ -1,6 +1,6 @@
 <template>
   <div class="bicicletas">
-    <h1>Biciletas</h1>
+    <h1>Ativos</h1>
     <hr />
     <b-button v-b-modal.criaBicicleta>
        <font-awesome-icon icon="plus" /> <span>Adicionar</span>
@@ -8,7 +8,7 @@
     <b-table striped hover :items="bicicletas" :fields="fields">
         <template slot="cell(ativo)" slot-scope="{ item: { ativo }}">
             <font-awesome-icon
-                :icon="ativo === 'Y' ? 'check' : 'times'"
+                :icon="ativo === 'y' ? 'check' : 'times'"
             />
         </template>
         <template slot="cell(actionDelete)" slot-scope="{ item: { codigo }}">
@@ -83,7 +83,7 @@ export default {
             this.bicicletaAtual = {
                 codigo: bicicleta.codigo,
                 ativo: bicicleta.ativo,
-                isNew: false
+                isNew: bicicleta.isNew
             }
             this.$root.$emit('bv::show::modal', 'editaBicicleta');
         },
@@ -107,7 +107,7 @@ export default {
         },
         beforeNovaBicicleta() {
             this.bicicletaAtual.codigo = '';
-            this.bicicletaAtual.ativo = 'Y';
+            this.bicicletaAtual.ativo = 'y';
             this.bicicletaAtual.isNew = true;
         },
         async saveNovaBicicleta() {

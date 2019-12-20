@@ -39,7 +39,7 @@ export default {
         return {
             content: {
                 codigo: this.value.codigo,
-                ativo: (this.value.ativo ==='Y'),
+                ativo: (this.value.ativo ==='y'),
                 isNew: this.value.isNew
             }
 
@@ -49,7 +49,7 @@ export default {
         handleInput () {
             let retorno = {
                 codigo: this.content.codigo,
-                ativo: this.content.ativo ? 'Y' : 'N',
+                ativo: this.content.ativo ? 'y' : 'n',
                 isNew: this.content.isNew
             };
             this.$emit('input', retorno);

@@ -84,10 +84,10 @@ router.delete('/:codigo', async (req, res) => {
 
 function criaClient() {
     return new Client({
-        user: 'postgres',
+        user: 'dia3',
         host: 'localhost',
-        database: 'db_dia3',
-        password: '123456',
+        database: 'db_dia5',
+        password: '1234',
         port: 5432
     });
 }
