@@ -1,13 +1,21 @@
 {
   "name": "dia1",
   "version": "1.0.0",
+<<<<<<< HEAD
   "description": "Material do primeiro dia de aula",
+=======
+  "description": "Material do primeiro dia de aula.",
+>>>>>>> 85526e5c703732a8c115ac4a5546642d938d78b4
   "main": "index.js",
   "scripts": {
     "start": "nodemon --exec babel-node ./index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+<<<<<<< HEAD
   "author": "Diego Yegros",
+=======
+  "author": "Gabriel Ferreria",
+>>>>>>> 85526e5c703732a8c115ac4a5546642d938d78b4
   "license": "ISC",
   "dependencies": {
     "@babel/core": "^7.7.5",

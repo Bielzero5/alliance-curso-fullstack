@@ -3,4 +3,8 @@
     "plugins": [
       "@babel/proposal-class-properties"
     ]
+<<<<<<< HEAD
   }
+=======
+}
+>>>>>>> 85526e5c703732a8c115ac4a5546642d938d78b4

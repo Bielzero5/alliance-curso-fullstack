@@ -3,7 +3,11 @@
     <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link> |
+<<<<<<< HEAD
       <router-link to="/ativos">Ativos</router-link>
+=======
+      <router-link to="/bicicletas">Bicicletas</router-link>
+>>>>>>> 85526e5c703732a8c115ac4a5546642d938d78b4
     </div>
     <router-view/>
   </div>
