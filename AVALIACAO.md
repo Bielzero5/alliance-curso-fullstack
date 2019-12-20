@@ -38,13 +38,13 @@ Para facilitar o desenvolvimento. Um analista de sistemas já montou o modelo de
 
 ```sql
 create table ATIVOS (
-    CODIGO          character(6)[] not null,
-    DESCRICAO       character(60)[] not null,
+    CODIGO          character(6) not null,
+    DESCRICAO       character(60) not null,
     primary key (CODIGO)
 );
 
 create table CARTEIRA (
-    CODIGO_ATIVO    character(6)[] not null,
+    CODIGO_ATIVO    character(6) not null,
     QUANTIDADE      numeric(10) not null,
     PRECO_MEDIO     numeric(12, 4) not null,
     primary key (CODIGO_ATIVO),
@@ -53,7 +53,7 @@ create table CARTEIRA (
 
 create table OPERACOES (
     ID              numeric(10) not null,    /* Utilize a sequencia SEQ_OPERACOES_ID para gerar as chaves desta tabela (auto incremento) */
-    CODIGO_ATIVO    character(6)[] not null,/* O papel (ativo) que foi transacionado */
+    CODIGO_ATIVO    character(6) not null,/* O papel (ativo) que foi transacionado */
     TIPO            char(1) not null,       /* Utilize 'V' para venda e 'C' para compra */
     DATA            timestamp default NOW() not null, /* Infome a data da operação */
     PRECO           numeric(12,2) not null, /* Informe o preço por ação da operação */
@@ -112,6 +112,7 @@ Nosso analista acredita que as seguintes rotas são essenciais:
         - ID = nextval('SEQ_OPERACOES_ID')
         - CODIGO_ATIVO = codigo
         - QUANTIDADE = quantidade
+        - PRECO = preco
         - TIPO = 'C'
         - DATA (não colocar no comando INSERT)
         - LUCRO_PREJUIZO (não colocar no comando INSERT)
@@ -126,6 +127,7 @@ Nosso analista acredita que as seguintes rotas são essenciais:
         - ID = nextval('SEQ_OPERACOES_ID')
         - CODIGO_ATIVO = codigo
         - QUANTIDADE = quantidade
+        - PRECO = preco
         - TIPO = 'V'
         - DATA (não colocar no comando INSERT)
         - LUCRO_PREJUIZO = (preco - CARTEIRA.PRECO_MEDIO) * quantidade **!! IMPORTANTE !!** você terá que de alguma forma ter o valor da CARTEIRA.PRECO_MEDIO, existem várias formas de resolver este problema, pense em como obter este valor (**bônus**). No entanto, se estiver com dificuldades grave 0 (ZERO) neste campo.
