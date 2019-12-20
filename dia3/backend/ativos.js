@@ -11,8 +11,8 @@ router.get('/', async(req, res) => {
     let queryResult = await client.query("select CODIGO, DESCRICAO from ATIVOS");
     for (let row of queryResult.rows) {
         resultado.push({
-            codigo: row.codigo,
-            descricao: row.descricao
+            codigo: row.codigo.trim(),
+            descricao: row.descricao.trim()
         });
         console.log(resultado[-1])
     };
@@ -21,21 +21,24 @@ router.get('/', async(req, res) => {
 });
 
 router.post('/', async(req, res) => {
+    const client = criaClient();
+    await client.connect();
     let payload = req.body;
     let sql = `insert into ATIVOS(CODIGO, DESCRICAO) values
     ('${payload.codigo}','${payload.descricao}')
     `;
 
-    const client = criaClient();
-    await client.connect();
+    
     await client.query(sql);
-    client.end();
+    await client.end();
 
     res.status(201);
     res.send();
 });
 
 router.put('/:codigo', async(req, res) => {
+    const client = criaClient();
+    await client.connect();
     let codigo = req.params.codigo;
     let payload = req.body;
     let sql = `update ATIVOS set
@@ -44,26 +47,26 @@ router.put('/:codigo', async(req, res) => {
         CODIGO = '${codigo}'
     `;
 
-    const client = criaClient();
-    await client.connect();
+    
     await client.query(sql);
-    client.end();
+    await client.end();
 
     res.status(201);
     res.send();
 });
 
 router.delete('/:codigo', async(req, res) => {
+    const client = criaClient();
+    await client.connect();
     let codigo = req.params.codigo;
     let sql = `delete from ATIVOS
     where
         CODIGO = '${codigo}'
     `;
 
-    const client = criaClient();
-    await client.connect();
+    
     await client.query(sql);
-    client.end();
+    await client.end();
 
     res.status(201);
     res.send();

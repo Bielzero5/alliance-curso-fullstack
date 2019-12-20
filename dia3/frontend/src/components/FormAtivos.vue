@@ -4,7 +4,7 @@
             id="input-codigo"
             label="Código"
             label-for="txtCodigo"
-            description="Informe o código único da bicicleta"
+            description="Informe o código único do ativo"
             :disabled="!content.isNew"
         >
             <b-form-input
@@ -12,23 +12,29 @@
                 v-model="content.codigo"
                 type="text"
                 required
-                placeholder="código da bicicleta"
+                placeholder="código do ativo"
                 @input="handleInput"
                 :disabled="!content.isNew"/>
         </b-form-group>
+
         <b-form-group
-            id="input-ativo"
-            label="Ativo"
-            label-for="chkAtivo"
-            description="Selecione se a bicicleta está disponível"
+            id="input-descricao"
+            label="Descrição"
+            label-for="txtDecricao"
+            description="Informe o a descrição do ativo"
+            :disabled="!content.isNew"
+            
         >
-            <b-form-checkbox
-                id="chkAtivo"
-                v-model="content.ativo"
+            <b-form-input
+                id="txtDescricao"
+                v-model="content.descricao"
+                type="text"
                 required
-                switch
-                @input="handleInput"/>
+                placeholder="Descrição do ativo"
+                @input="handleInput"
+               />
         </b-form-group>
+        
     </b-form>
 </template>
 
@@ -39,7 +45,7 @@ export default {
         return {
             content: {
                 codigo: this.value.codigo,
-                ativo: (this.value.ativo ==='y'),
+                descricao: this.value.descricao,
                 isNew: this.value.isNew
             }
 
@@ -49,7 +55,7 @@ export default {
         handleInput () {
             let retorno = {
                 codigo: this.content.codigo,
-                ativo: this.content.ativo ? 'y' : 'n',
+                descricao: this.content.descricao,
                 isNew: this.content.isNew
             };
             this.$emit('input', retorno);
