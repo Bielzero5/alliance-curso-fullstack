@@ -142,6 +142,7 @@ Nosso analista acredita que as seguintes rotas são essenciais:
         - ID = nextval('SEQ_OPERACOES_ID')
         - CODIGO_ATIVO = codigo
         - QUANTIDADE = quantidade
+        - PRECO = preco
         - TIPO = 'C'
         - DATA (não colocar no comando INSERT)
         - LUCRO_PREJUIZO (não colocar no comando INSERT)
